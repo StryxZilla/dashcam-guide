@@ -284,14 +284,22 @@
         }
 
         .pick-image {
-            width: 140px;
-            height: 140px;
+            width: 180px;
+            height: 180px;
             background: var(--bg-cream);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .pick-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
         }
 
         .pick-image svg {
@@ -397,8 +405,20 @@
             font-weight: bold;
         }
 
+        .buy-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+        }
+
         .buy-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: var(--primary-blue);
             color: #fff;
             font-family: 'Libre Franklin', sans-serif;
@@ -407,13 +427,29 @@
             padding: 14px 28px;
             border-radius: 6px;
             text-decoration: none;
-            margin-top: 20px;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
         }
 
         .buy-button:hover {
             background: var(--dark-blue);
             color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .buy-button:active {
+            transform: translateY(0);
+        }
+
+        .buy-button svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .buy-note {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 13px;
+            color: var(--text-muted);
         }
 
         .pick-verdict {
@@ -762,7 +798,7 @@
 
             .pick-image {
                 width: 100%;
-                height: 180px;
+                height: 200px;
             }
 
             .pros-cons {
@@ -862,11 +898,9 @@
         <article class="pick-card top-pick" id="best-overall">
             <div class="pick-badge">Best Overall</div>
             <div class="pick-header">
-                <div class="pick-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </div>
+                <a href="https://www.amazon.com/dp/B0DSKXJV3H" target="_blank" rel="noopener" class="pick-image">
+                    <img src="images/vantrue-e1-pro.jpg" alt="Vantrue E1 Pro 4K Mini Dash Cam — compact black camera with green-coated lens, shown with app and feature highlights" loading="lazy">
+                </a>
                 <div class="pick-info">
                     <h3 class="pick-title">Vantrue E1 Pro</h3>
                     <p class="pick-subtitle">Best balance of footage quality, features, and price</p>
@@ -918,18 +952,22 @@
                     </ul>
                 </div>
             </div>
-            <a href="https://www.amazon.com/dp/B0DSKXJV3H" class="buy-button" target="_blank" rel="noopener">~$120 at Amazon →</a>
+            <div class="buy-area">
+                <a href="https://www.amazon.com/dp/B0DSKXJV3H" class="buy-button" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                    ~$120 at Amazon
+                </a>
+                <span class="buy-note">Free shipping with Prime · Price fluctuates</span>
+            </div>
         </article>
 
         <!-- Best Value -->
         <article class="pick-card" id="best-value">
             <div class="pick-badge budget">Best Value</div>
             <div class="pick-header">
-                <div class="pick-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </div>
+                <a href="https://www.amazon.com/dp/B0C5MVB7NX" target="_blank" rel="noopener" class="pick-image">
+                    <img src="images/viofo-a119-mini-2.jpg" alt="Viofo A119 Mini 2 dash cam — compact dark gray camera with small LCD screen showing road footage" loading="lazy">
+                </a>
                 <div class="pick-info">
                     <h3 class="pick-title">Viofo A119 Mini 2</h3>
                     <p class="pick-subtitle">Enthusiast-recommended quality at a great price</p>
@@ -981,18 +1019,22 @@
                     </ul>
                 </div>
             </div>
-            <a href="https://www.amazon.com/dp/B0C5MVB7NX" class="buy-button" target="_blank" rel="noopener">~$100 at Amazon →</a>
+            <div class="buy-area">
+                <a href="https://www.amazon.com/dp/B0C5MVB7NX" class="buy-button" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+                    ~$100 at Amazon
+                </a>
+                <span class="buy-note">Free shipping with Prime · Price fluctuates</span>
+            </div>
         </article>
 
         <!-- Budget Pick -->
         <article class="pick-card" id="budget-pick">
             <div class="pick-badge upgrade">Budget Pick</div>
             <div class="pick-header">
-                <div class="pick-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </div>
+                <a href="https://www.amazon.com/dp/B07PQKZYCC" target="_blank" rel="noopener" class="pick-image">
+                    <img src="images/70mai-1s.jpg" alt="70mai Dash Cam 1S — compact cylindrical black camera with blue button and adjustable mount" loading="lazy">
+                </a>
                 <div class="pick-info">
                     <h3 class="pick-title">70mai Dash Cam 1S</h3>
                     <p class="pick-subtitle">Simple, reliable, and incredibly affordable</p>
@@ -1047,7 +1089,13 @@
                     </ul>
                 </div>
             </div>
-            <a href="https://www.amazon.com/dp/B07PQKZYCC" class="buy-button" target="_blank" rel="noopener">~$50 at Amazon →</a>
+            <div class="buy-area">
+                <a href="https://www.amazon.com/dp/B07PQKZYCC" class="buy-button" target="_blank" rel="noopener">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 000-4z"/></svg>
+                    ~$50 at Amazon
+                </a>
+                <span class="buy-note">Free shipping with Prime · Price fluctuates</span>
+            </div>
         </article>
 
         <!-- Why we dropped Kingslim -->
